@@ -1,4 +1,7 @@
-import { SolidToggleButtonGroup, StarsDisplay } from '@genshin-optimizer/common/ui'
+import {
+  SolidToggleButtonGroup,
+  StarsDisplay,
+} from '@genshin-optimizer/common/ui'
 import {
   bulkCatTotal,
   handleMultiSelect,
@@ -69,8 +72,7 @@ function useArtifactTotals(filteredIds: string[]) {
     } as const
     return bulkCatTotal(catKeys, (ctMap) =>
       database.arts.entries.forEach(([id, art]) => {
-        const { rarity, slotKey, location, setKey, mainStatKey, substats } =
-          art
+        const { rarity, slotKey, location, setKey, mainStatKey, substats } = art
         const lock = art.lock ? 'locked' : 'unlocked'
         const lns = substats.filter((s) => s.value).length
         const equipped = location ? 'equipped' : 'unequipped'
@@ -153,7 +155,9 @@ function FilterMenu({
         onClose={() => setAnchor(null)}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-        slotProps={{ paper: { sx: { mt: 1, p: 1.5, width, maxWidth: '95vw' } } }}
+        slotProps={{
+          paper: { sx: { mt: 1, p: 1.5, width, maxWidth: '95vw' } },
+        }}
       >
         <Suspense fallback={null}>{children}</Suspense>
       </Popover>
@@ -407,7 +411,14 @@ export function ArtifactFilterBar({ filteredIds }: { filteredIds: string[] }) {
 
       <Collapse in={moreOpen} unmountOnExit>
         <Grid container spacing={2} sx={{ pt: 0.5 }}>
-          <Grid item xs={12} md={4} display="flex" flexDirection="column" gap={1}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            display="flex"
+            flexDirection="column"
+            gap={1}
+          >
             {caption('Raridade')}
             <SolidToggleButtonGroup fullWidth value={rarity} size="small">
               {allArtifactRarityKeys.map((star) => (
@@ -443,7 +454,14 @@ export function ArtifactFilterBar({ filteredIds }: { filteredIds: string[] }) {
               ))}
             </SolidToggleButtonGroup>
           </Grid>
-          <Grid item xs={12} md={4} display="flex" flexDirection="column" gap={1}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            display="flex"
+            flexDirection="column"
+            gap={1}
+          >
             {caption('Estado')}
             <SolidToggleButtonGroup fullWidth value={locked} size="small">
               {lockedValues.map((v, i) => (
@@ -497,9 +515,17 @@ export function ArtifactFilterBar({ filteredIds }: { filteredIds: string[] }) {
                 disabled={showEquipped}
               />
             </Suspense>
-            {showEquipped && caption('Desligue "Equipados" para escolher personagens.')}
+            {showEquipped &&
+              caption('Desligue "Equipados" para escolher personagens.')}
           </Grid>
-          <Grid item xs={12} md={4} display="flex" flexDirection="column" gap={1}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            display="flex"
+            flexDirection="column"
+            gap={1}
+          >
             {caption('Valor de Roll')}
             <RVSlide
               showLevelText
@@ -514,7 +540,9 @@ export function ArtifactFilterBar({ filteredIds }: { filteredIds: string[] }) {
             {caption('Atributos que contam para o RV')}
             <SubstatToggle
               selectedKeys={effFilter}
-              onChange={(effFilter) => database.displayArtifact.set({ effFilter })}
+              onChange={(effFilter) =>
+                database.displayArtifact.set({ effFilter })
+              }
             />
           </Grid>
         </Grid>

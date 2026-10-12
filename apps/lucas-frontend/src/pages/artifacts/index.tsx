@@ -163,9 +163,7 @@ export default function PageArtifact() {
               Adicionar
             </Button>
           </Box>
-          <Suspense
-            fallback={<Skeleton variant="rectangular" height={40} />}
-          >
+          <Suspense fallback={<Skeleton variant="rectangular" height={40} />}>
             <ArtifactFilterBar filteredIds={filteredArtIds} />
           </Suspense>
         </CardContent>

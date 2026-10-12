@@ -35,7 +35,7 @@ const PageHome = lazy(
 )
 const PageArtifacts = lazy(
   () =>
-    import('../pages/artifacts') as unknown as Promise<{
+    import('../pages/artifacts/index.js') as unknown as Promise<{
       default: ComponentType<any>
     }>
 )

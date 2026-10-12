@@ -208,7 +208,9 @@ function DesktopHeader({
                   fontSize: { md: 13, lg: 14 },
                   letterSpacing: { md: '0.5px', lg: '1.5px' },
                   color: active ? celestia.goldLight : celestia.muted,
-                  boxShadow: active ? `inset 0 -2px 0 ${celestia.gold}` : 'none',
+                  boxShadow: active
+                    ? `inset 0 -2px 0 ${celestia.gold}`
+                    : 'none',
                   transition: 'color 0.2s',
                   '&:hover': { color: celestia.goldLight },
                 }}

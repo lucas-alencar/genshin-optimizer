@@ -58,9 +58,8 @@ export function ArtifactActionsMenu({
       label: 'Desequipar',
       count: numUnequip,
       icon: <PersonOffIcon fontSize="small" />,
-      onClick: run(
-        `Desequipar ${numUnequip} artefatos dos personagens?`,
-        () => artifactIds.forEach((id) => database.arts.set(id, { location: '' }))
+      onClick: run(`Desequipar ${numUnequip} artefatos dos personagens?`, () =>
+        artifactIds.forEach((id) => database.arts.set(id, { location: '' }))
       ),
     },
     {
